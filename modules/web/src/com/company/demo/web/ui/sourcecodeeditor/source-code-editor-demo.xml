@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://caption"
+        class="com.company.demo.web.ui.sourcecodeeditor.SourceCodeEditorDemo"
+        messagesPack="com.company.demo.web.ui.sourcecodeeditor">
+    <dsContext>
+        <collectionDatasource id="usersDs"
+                              class="com.haulmont.cuba.security.entity.User"
+                              view="user.browse">
+            <query>
+                <![CDATA[select u from sec$User u]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <layout>
+        <tabSheet id="tabSheet"
+                  height="100%">
+            <tab id="simpleCodeEditorTab"
+                 caption="Simple Source Code Editor"
+                 expand="simpleCodeEditor"
+                 margin="true,false,false,false"
+                 spacing="true">
+                <hbox spacing="true">
+                    <lookupField id="modeField"
+                                 caption="Mode"
+                                 required="true"/>
+                    <checkBox id="handleTabKeyCheck"
+                              align="BOTTOM_LEFT"
+                              caption="Handle Tab Key"/>
+                    <checkBox id="highlightActiveLineCheck"
+                              align="BOTTOM_LEFT"
+                              caption="Highlight Active Line"/>
+                    <checkBox id="printMarginCheck"
+                              align="BOTTOM_LEFT"
+                              caption="Print Margin"/>
+                    <checkBox id="showGutterCheck"
+                              align="BOTTOM_LEFT"
+                              caption="Show Gutter"/>
+                </hbox>
+                <sourceCodeEditor id="simpleCodeEditor"
+                                  width="100%"/>
+            </tab>
+            <tab id="suggesterEditorTab"
+                 caption="Source Code Editor with Suggester"
+                 expand="suggesterCodeEditor"
+                 margin="true,false,false,false"
+                 spacing="true">
+                <sourceCodeEditor id="suggesterCodeEditor"
+                                  width="100%"/>
+            </tab>
+        </tabSheet>
+    </layout>
+</window>
